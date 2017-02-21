@@ -9,6 +9,13 @@ body{
 	font-size: 1.5em;
 }*/
 textarea.form-control{
-	min-height: 150px;
+	min-height: 100px;
 	max-width: 100%;
+}
+
+/* Service Modal */
+.modal .alert{
+	display: none;
+	margin-left: 2.7%;
+    width: 95%;
 }

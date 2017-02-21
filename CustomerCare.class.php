@@ -41,5 +41,51 @@
 				return mysqli_connect_error();
 			}
 	    }
+
+	    function saveService($post,$id){
+	    	$name=$post['serviceName'];
+	    	$desc=$post['serviceDesc'];
+
+	    	$query="UPDATE services SET service_title='".$name."',service_description='".$desc."' WHERE id=".$id;
+			if(mysqli_query($this->conn,$query)){
+				return 'success';
+			}
+			else{
+				return mysqli_connect_error();
+			}
+	    }
+
+	    function getServices(){
+	    	$query="SELECT * FROM services";
+			$result=mysqli_query($this->conn,$query);
+			if(mysqli_num_rows($result) > 0) {
+				return $result;
+			}
+			else{
+				return false;
+			}
+	    }
+
+	    function getService($id){
+	    	$query="SELECT * FROM services WHERE id=".$id;
+			$result=mysqli_query($this->conn,$query);
+			if(mysqli_num_rows($result) > 0) {
+				return $result;
+			}
+			else{
+				return false;
+			}
+	    }
+
+	    function deleteService($id){
+	    	$query="DELETE FROM services WHERE id=".$id;
+			$result=mysqli_query($this->conn,$query);
+			if(mysqli_num_rows($result) > 0) {
+				return 'success';
+			}
+			else{
+				return false;
+			}
+	    }
 	}
 ?>
